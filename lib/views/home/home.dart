@@ -44,7 +44,7 @@ class HomeScreen extends HookConsumerWidget {
     final destinationController = TextEditingController();
     final currentState = ref.watch(statusProvider);
     final currentMethod = ref.watch(methodProvider);
-    String apiKey = 'AIzaSyDsuwb8Xg0XB7tHfmf5vSvABfXVCIs6Yl0';
+    final String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
     final routeViewModel = RouteViewModel(apiKey: apiKey);
 
     return Scaffold(
@@ -133,7 +133,7 @@ class HomeScreen extends HookConsumerWidget {
     String currentMethod,
     String currentState,
   ) async {
-    String apiKey = 'AIzaSyDsuwb8Xg0XB7tHfmf5vSvABfXVCIs6Yl0';
+    final String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
     final routeViewModel = RouteViewModel(apiKey: apiKey);
 
     showModalBottomSheet(
